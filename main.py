@@ -6,7 +6,7 @@ import os
 import mysql.connector
 app = Flask(__name__)
 
-mydb = mysql.connector.connect(host='localhost', user='root', passwd='', db='cloud')
+mydb = mysql.connector.connect(host='pushyahass.mysql.database.azure.com', user='pushadmin@pushyahass', passwd='db9@2018', db='cloud')
 #cur = mydb.cursor()
 cur = mydb.cursor(buffered=True)
 reader = csv.reader(open('static/all_month.csv', 'r'))
