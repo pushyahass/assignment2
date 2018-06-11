@@ -68,7 +68,7 @@ def location():
     loc = request.form['loc']
     kms = request.form['kms']
     cur.execute("DROP VIEW IF EXISTS quake")
-    cur.execute("CREATE VIEW quake as (select place,time1,TRIM(SUBSTRING(place,(LOCATE(',', place) +1))) as location,SUBSTRING(place, 1, LOCATE('k', place) - 1) as kms from earthquake)")
+    cur.execute("CREATE VIEW quake as (select place,time1,TRIM(SUBSTRING(place,(LOCATE(',', place) +1))) as location,TRIM(SUBSTRING(place, 1, LOCATE('k', place) - 1)) as kms from earthquake)")
     cur.execute("select place, Date_Format(time1,'%m/%d/%Y') from quake where location LIKE %s and kms <=%s", (loc, kms,))
     rows = cur.fetchall()
     return render_template("mag_range.html", mag_rows=rows)
