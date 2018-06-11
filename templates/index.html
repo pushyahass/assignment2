@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment2</title>
+</head>
+<body>
+NAME : VENKATA PUSHYAHASS REDDY OBULAPU<br>
+ID: 1001408522<br><br>
+<form id="upload_form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" >
+    <input type="file" name="file" accept="text/csv/image" >
+    <input type="submit" value="Upload File">
+</form>
+<br><br>
+<form id="magnitude" action="{{ url_for('magnitude') }}" method="POST" enctype="multipart/form-data" >
+    Retrieve earthquakes of Magnitude greater than
+    <input type="text" name="magnitude" accept="text" >
+    <input type="submit" value="Retrieve Earthquakes">
+</form>
+<br><br>
+<form id="mag_range" action="{{ url_for('mag_range') }}" method="POST" enctype="multipart/form-data" >
+    Retrieve earthquakes of Magnitude from
+    <input type="text" name="from_mag" accept="text" > To: <input type="text" name="to_mag" accept="text" ><br>
+    From Date: <input type="date" name="from_date"> TO Date: <input type="date" name="to_date">
+    <input type="submit" value="Retrieve Earthquakes">
+</form>
+<br><br>
+<form id="location" action="{{ url_for('location') }}" method="POST" enctype="multipart/form-data" >
+    List of earthquakes near a particular location
+    <input type="text" name="loc" accept="text" > Range: <input type="text" name="kms" accept="text" ><br>
+    <input type="submit" value="List Earthquakes">
+</form>
+<form id="night" action="{{ url_for('night') }}" method="POST" enctype="multipart/form-data" >
+<br><br>
+    <input type="submit" value="List Earthquakes at Night">
+</form>
+</body>
+</html>
